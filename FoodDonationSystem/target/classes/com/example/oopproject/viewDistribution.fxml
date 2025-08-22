@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color:#FDF2E9;"
+            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oopproject.ViewDistributionController">
+
+    <!-- Header -->
+    <top>
+        <VBox spacing="6">
+            <padding>
+                <Insets top="10" right="16" bottom="6" left="16"/>
+            </padding>
+
+            <!-- Row 1: Title -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="View Distributions"
+                       style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Row 2: Filters & Actions -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Donation"/>
+                <ComboBox fx:id="donationPicker" prefWidth="220"
+                          promptText="All Donations"
+                          onAction="#onDonationChanged"/>
+
+                <Label text="Item ID"/>
+                <TextField fx:id="itemNumber" prefWidth="100" promptText="(optional)"/>
+
+                <Button text="View" onAction="#viewDistributions"
+                        style="-fx-background-color:#1D77C7; -fx-text-fill:white;"/>
+                <Button text="Clear" onAction="#clear"
+                        style="-fx-background-color:#880808; -fx-text-fill:white;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Results -->
+    <center>
+        <VBox spacing="6">
+            <padding><Insets top="0" right="16" bottom="0" left="16"/></padding>
+            <TableView fx:id="table" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colRecipientId"   text="Recipient ID"  prefWidth="100"/>
+                    <TableColumn fx:id="colRecipientName" text="Name"          prefWidth="200"/>
+                    <TableColumn fx:id="colDonation"      text="Donation"      prefWidth="160"/>
+                    <TableColumn fx:id="colQty"           text="Qty"           prefWidth="60"/>
+                    <TableColumn fx:id="colDate"          text="Date"          prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- Status -->
+    <bottom>
+        <HBox>
+            <padding><Insets top="6" right="16" bottom="10" left="16"/></padding>
+            <Label fx:id="statusLabel"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color:#FDF2E9;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.fooddonationsystem.ViewRecipientsItemController">
+
+    <!-- Header / input -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding><Insets top="12" right="16" bottom="6" left="16"/></padding>
+            <Label text="View Recipient's Items"
+                   style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label text="Recipient ID"/>
+            <TextField fx:id="recipientID" promptText="e.g. 1" prefWidth="120"/>
+            <Button text="View" onAction="#viewItems"
+                    style="-fx-background-color:#1D77C7; -fx-text-fill:white;"/>
+            <Button text="Clear" onAction="#clear"
+                    style="-fx-background-color:#880808; -fx-text-fill:white;"/>
+        </HBox>
+    </top>
+
+    <!-- Results table -->
+    <center>
+        <VBox spacing="6">
+            <padding><Insets top="0" right="16" bottom="0" left="16"/></padding>
+            <TableView fx:id="table" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colItemId"    text="Item ID"    prefWidth="80"/>
+                    <TableColumn fx:id="colItemName"  text="Item Name"  prefWidth="200"/>
+                    <TableColumn fx:id="colDonation"  text="Donation"   prefWidth="160"/>
+                    <TableColumn fx:id="colQty"       text="Qty"        prefWidth="60"/>
+                    <TableColumn fx:id="colDate"      text="Date"       prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- Status line -->
+    <bottom>
+        <HBox>
+            <padding><Insets top="6" right="16" bottom="10" left="16"/></padding>
+            <Label fx:id="statusLabel"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="430.0" prefWidth="600.0"
+            style="-fx-background-color:#FDF2E9;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oopproject.AddRecipientToItemController">
+
+    <!-- Header + filters -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding><Insets top="12" right="16" bottom="0" left="16"/></padding>
+            <Label text="Assign Item"
+                   style="-fx-font-size:16px; -fx-font-weight:bold;" prefWidth="100"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <ComboBox fx:id="donationPicker" prefWidth="205"
+                      promptText="Select Donation"/>
+            <ComboBox fx:id="categoryFilter" prefWidth="120"
+                      promptText="All Categories" onAction="#onCategoryFilter"/>
+            <TextField fx:id="recipientSearch" prefWidth="130"
+                       promptText="Search recipient..."/>
+        </HBox>
+    </top>
+
+    <!-- Two tables: items (left) & recipients (right) -->
+    <!-- Two tables + form all in CENTER (no bottom region) -->
+    <center>
+        <VBox spacing="6">
+            <padding><Insets top="10" right="16" bottom="8" left="16"/></padding>
+
+            <!-- Tables row -->
+            <HBox spacing="12">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Items"/>
+                    <TableView fx:id="itemsTable" prefHeight="160">
+                        <columns>
+                            <TableColumn fx:id="colItemId"   text="ID"        prefWidth="70"/>
+                            <TableColumn fx:id="colItemName" text="Item Name" prefWidth="150"/>
+                            <TableColumn fx:id="colItemStock" text="Stock"    prefWidth="70"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Recipients"/>
+                    <TableView fx:id="recipientsTable" prefHeight="160">
+                        <columns>
+                            <TableColumn fx:id="colRecId"   text="ID"    prefWidth="70"/>
+                            <TableColumn fx:id="colRecName" text="Name"  prefWidth="150"/>
+                            <TableColumn fx:id="colRecPhone" text="Phone" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </HBox>
+
+            <!-- Tight divider -->
+            <Separator/>
+
+            <!-- Form directly under the tables -->
+            <GridPane hgap="10" vgap="8">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="20"/>
+                    <ColumnConstraints percentWidth="30"/>
+                </columnConstraints>
+
+                <Label text="Item ID" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="itemNumber" promptText="e.g. 12"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Recipient ID" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="recipientID" promptText="e.g. 1"
+                           GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Quantity" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="quantityField" promptText="e.g. 3"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Allocation limit:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Label fx:id="policyHintLabel"
+                       GridPane.rowIndex="2" GridPane.columnIndex="1"
+                       GridPane.columnSpan="3"
+                       GridPane.hgrow="ALWAYS"
+                       maxWidth="Infinity"
+                       wrapText="true"
+                       style="-fx-text-fill: #666666;"/>
+
+
+                <!-- Optional UI-only field -->
+                <Label text="Recipient Type" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="recipientTypeCombo" prefWidth="150"
+                          GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+            </GridPane>
+
+            <HBox spacing="8">
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="Assign" onAction="#addRecipientToDonation"
+                        style="-fx-background-color:#1D77C7; -fx-text-fill:white;"/>
+                <Button text="Clear" onAction="#clear"
+                        style="-fx-background-color:#880808; -fx-text-fill:white;"/>
+            </HBox>
+
+            <Label fx:id="statusLabel"/>
+        </VBox>
+    </center>
+
+</BorderPane>

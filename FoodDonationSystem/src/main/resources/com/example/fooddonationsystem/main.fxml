@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FDF2E9;"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fooddonationsystem.MainController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu text="Items">
+                    <items>
+                        <MenuItem text="Add Item" onAction="#loadAddItem" />
+                        <MenuItem text="Delete Item" onAction="#loadDeleteItem" />
+                    </items>
+                </Menu>
+<!--                <Menu text="Recipient">-->
+<!--                    <items>-->
+<!--                        <MenuItem text="Add Recipient" onAction="#loadAddRecipientToDonation" />-->
+<!--                        <MenuItem text="Delete Recipient" onAction="#loadDeleteRecipientFromDonation" />-->
+<!--                    </items>-->
+<!--                </Menu>-->
+                <Menu text="Donation">
+                    <items>
+                        <MenuItem text="Assign Items" onAction="#loadAssignItems" />
+                        <MenuItem text="Remove Assignment" onAction="#loadRemoveAssignment" />
+                    </items>
+                </Menu>
+                <Menu text="Item Stock">
+                    <items>
+                        <MenuItem text="Update Item Stock" onAction="#loadUpdateStock" />
+                    </items>
+                </Menu>
+                <Menu text="View">
+                    <items>
+<!--                        <MenuItem text="View Recipients per Item" onAction="#loadViewRecipientsInItem" />-->
+                        <MenuItem text="View Recipients's Item" onAction="#loadViewRecipientsItem" />
+                        <MenuItem text="View Distribution" onAction="#loadViewDistribution" />
+                    </items>
+                </Menu>
+                <Menu text="Log Out">
+                    <items>
+                        <MenuItem text="Log Out" onAction="#loadLogOut" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <!-- Placeholder to load page content -->
+        <Pane fx:id="contentPane" />
+    </center>
+</BorderPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FDF2E9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fooddonationsystem.LogoutController">
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="156.0" fitWidth="287.0" layoutX="165.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../images/diet.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="logout" layoutX="225.0" layoutY="274.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="45.0" prefWidth="149.0" style="-fx-background-color: #1D77C7;" text="Log Out" textFill="#ffffff">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

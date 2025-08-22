@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color:#FDF2E9;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oopproject.UpdateStockController">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding><Insets top="12" right="16" bottom="0" left="16"/></padding>
+            <Label text="Update Item Stock" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+            <!-- Category filter -->
+            <Label text="Category"/>
+            <ComboBox fx:id="categoryFilter" prefWidth="120"
+                      promptText="All Categories"
+                      onAction="#onCategoryFilter"/>
+
+            <!-- (Optional) quick search by name/ID -->
+            <Label text="Search"/>
+            <TextField fx:id="itemSearch" promptText="name or ID..." prefWidth="100"
+                       onKeyReleased="#onItemSearch"/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="8">
+            <padding><Insets top="10" right="16" bottom="8" left="16"/></padding>
+
+            <Label text="Items"/>
+            <TableView fx:id="itemsTable" prefHeight="180">
+                <columns>
+                    <TableColumn fx:id="colId"    text="ID"    prefWidth="80"/>
+                    <TableColumn fx:id="colName"  text="Name"  prefWidth="320"/>
+                    <TableColumn fx:id="colStock" text="Stock" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <Separator/>
+
+            <GridPane hgap="10" vgap="8">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="20"/>
+                    <ColumnConstraints percentWidth="30"/>
+                </columnConstraints>
+
+                <Label text="Item ID" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="itemIdField" promptText="e.g. 12"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="New Stock" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="itemStockField" promptText="e.g. 50"
+                           GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+            </GridPane>
+
+            <HBox spacing="8">
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="Update" onAction="#updateStock"
+                        style="-fx-background-color:#1D77C7; -fx-text-fill:white;"/>
+                <Button text="Clear" onAction="#clear"
+                        style="-fx-background-color:#880808; -fx-text-fill:white;"/>
+            </HBox>
+
+            <Label fx:id="statusLabel"/>
+        </VBox>
+    </center>
+</BorderPane>

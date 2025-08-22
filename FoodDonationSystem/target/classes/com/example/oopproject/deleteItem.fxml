@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FDF2E9;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oopproject.DeleteItemController">
+
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="601.0" BorderPane.alignment="CENTER">
+            <children>
+
+                <!-- Header + CATEGORY filter -->
+                <Label layoutX="228.0" layoutY="20.0" text="Delete Donation Item" />
+                <ComboBox fx:id="donation" layoutX="420.0" layoutY="16.0"
+                          prefHeight="15.0" prefWidth="160.0"
+                          promptText="Filter: Category" onAction="#displayItem"/>
+
+                <!-- Existing items table (smaller) -->
+                <Label layoutX="42.0" layoutY="52.0" text="Existing Items" />
+                <TableView fx:id="itemsTable" layoutX="42.0" layoutY="72.0"
+                           prefHeight="140.0" prefWidth="538.0">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="80.0"/>
+                        <TableColumn fx:id="colName" text="Item Name" prefWidth="220.0"/>
+                        <TableColumn fx:id="colCategory" text="Category" prefWidth="150.0"/>
+                        <TableColumn fx:id="colStock" text="Stock" prefWidth="80.0"/>
+                    </columns>
+                </TableView>
+
+                <Separator layoutX="42.0" layoutY="220.0" prefWidth="538.0"/>
+
+                <!-- Legacy textarea (kept, but hidden) -->
+                <TextArea fx:id="item" wrapText="true" editable="false"
+                          layoutX="42.0" layoutY="72.0" prefHeight="149.0" prefWidth="515.0"
+                          visible="false" managed="false"/>
+
+                <!-- Bottom: delete form -->
+                <Label layoutX="52.0" layoutY="246.0" text="Item ID" />
+                <TextField fx:id="itemNumber" layoutX="156.0" layoutY="242.0" promptText="e.g. 12" prefWidth="120.0"/>
+
+                <Button fx:id="deleteItem" layoutX="156.0" layoutY="284.0"
+                        mnemonicParsing="false" onAction="#deleteItem"
+                        style="-fx-background-color: #1D77C7;" text="Delete" textFill="ffffff" />
+                <Button fx:id="clear" layoutX="231.0" layoutY="284.0"
+                        mnemonicParsing="false" onAction="#clear"
+                        style="-fx-background-color: #880808;" text="Clear" textFill="ffffff" />
+
+                <Label fx:id="wrongDelete" layoutX="156.0" layoutY="320.0"
+                       prefHeight="25.0" prefWidth="420.0" />
+
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
