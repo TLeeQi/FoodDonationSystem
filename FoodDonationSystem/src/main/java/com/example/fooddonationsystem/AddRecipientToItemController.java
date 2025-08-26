@@ -461,7 +461,7 @@ public class AddRecipientToItemController {
     // TEMP policy: tweak these numbers or replace with your AllocationPolicy classes later.
     private int computePolicyLimit(String recipientType, int itemId) {
         if (recipientType == null) return Integer.MAX_VALUE; // no limit if unknown
-        if ("Organisation".equalsIgnoreCase(recipientType)) return 10;
+        if ("Organisation".equalsIgnoreCase(recipientType)) return 20;
         if ("IndividualPolicy".equalsIgnoreCase(recipientType)) return 5;
         return Integer.MAX_VALUE; // default = no limit
     }
